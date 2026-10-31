@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tawakkal Steel Center | Pachora</title>
+<meta name="description" content="Tawakkal Steel Center, Bhokri, Jamner Road, Pachora, Jalgaon. Explore our steel utensils and kitchenware collection.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f9ff;
+  color:#26384d;
+  overflow-x:hidden;
+}
+
+:root{
+  --blue:#123f78;
+  --dark:#102d50;
+  --light:#eaf3ff;
+  --green:#20bd62;
+}
+
+header{
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 12px #0001;
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--blue);
+}
+
+.logo small{
+  display:block;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#718096;
+  margin-top:4px;
+}
+
+.navlinks{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.navlinks a{
+  text-decoration:none;
+  color:var(--blue);
+  font-size:14px;
+  font-weight:bold;
+}
+
+.navlinks a:hover{color:#2581d5}
+
+.hero{
+  background:linear-gradient(120deg,#10366b,#287ac4);
+  color:white;
+  text-align:center;
+  padding:90px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,5vw,49px);
+  margin-bottom:17px;
+}
+
+.hero p{
+  font-size:17px;
+  line-height:1.8;
+  color:#e5f1ff;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  margin-top:23px;
+  background:white;
+  color:var(--blue);
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.btn-blue{
+  background:var(--blue);
+  color:white;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 5%;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.heading h2{
+  color:var(--blue);
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.heading p{
+  color:#718096;
+  line-height:1.6;
+}
+
+.search{
+  display:block;
+  width:100%;
+  max-width:520px;
+  margin:0 auto 22px;
+  padding:14px 17px;
+  border:1px solid #cbd9ea;
+  border-radius:9px;
+  outline:none;
+  font-size:16px;
+}
+
+.search:focus{
+  border-color:var(--blue);
+}
+
+.filters{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:30px;
+}
+
+.filter{
+  padding:10px 16px;
+  border:1px solid #cbd9ea;
+  background:white;
+  color:var(--blue);
+  border-radius:30px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.filter.active{
+  background:var(--blue);
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border:1px solid #e3ebf5;
+  border-radius:13px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 4px 15px #123f7810;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 9px 22px #123f7820;
+}
+
+.product-image{
+  height:190px;
+  background:#fff;
+  overflow:hidden;
+  padding:10px;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transition:transform .3s;
+}
+
+.card:hover .product-image img{
+  transform:scale(1.06);
+}
+
+.card h3{
+  padding:15px 8px 8px;
+  color:var(--blue);
+  font-size:17px;
+}
+
+.card p{
+  padding:0 10px 15px;
+  color:#718096;
+  font-size:13px;
+  min-height:34px;
+  line-height:1.5;
+}
+
+.order-btn{
+  display:block;
+  padding:14px 8px;
+  background:#e8f2ff;
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.order-btn:hover{
+  background:var(--green);
+  color:white;
+}
+
+.no-results{
+  display:none;
+  text-align:center;
+  padding:30px;
+  color:#718096;
+}
+
+.about{
+  background:#eaf3ff;
+}
+
+.about-content{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  line-height:1.9;
+}
+
+.about-content h3{
+  color:var(--blue);
+  font-size:23px;
+  margin-bottom:12px;
+}
+
+.contact-box{
+  max-width:680px;
+  margin:auto;
+  background:white;
+  padding:35px 20px;
+  border-radius:15px;
+  text-align:center;
+  line-height:2;
+  box-shadow:0 4px 15px #0001;
+}
+
+.contact-box h3{
+  color:var(--blue);
+  font-size:25px;
+  margin-bottom:12px;
+}
+
+.contact-box p{
+  overflow-wrap:anywhere;
+}
+
+footer{
+  background:#102b4c;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+  line-height:2;
+}
+
+footer p{
+  color:#d9e7f8;
+  font-size:14px;
+}
+
+.float-wa{
+  position:fixed;
+  bottom:20px;
+  right:18px;
+  z-index:200;
+  background:var(--green);
+  color:white;
+  text-decoration:none;
+  padding:15px 20px;
+  border-radius:40px;
+  font-weight:bold;
+  box-shadow:0 4px 15px #0003;
+}
+
+.float-wa:hover{
+  background:#159b4d;
+}
+
+@media(max-width:950px){
+  .products{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px){
+  nav{
+    flex-direction:column;
+    text-align:center;
+    padding:13px 8px;
+  }
+
+  .navlinks{
+    justify-content:center;
+    gap:15px;
+  }
+
+  .navlinks a{font-size:13px}
+
+  .hero{padding:60px 15px}
+
+  .hero p{font-size:15px}
+
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .product-image{height:135px}
+
+  .card h3{font-size:15px}
+
+  .card p{font-size:12px}
+
+  .order-btn{font-size:12px}
+
+  .container{padding:42px 4%}
+
+  .heading h2{font-size:25px}
+
+  .float-wa{
+    bottom:14px;
+    right:12px;
+    padding:12px 15px;
+    font-size:13px;
+  }
+}
+
+@media(max-width:350px){
+  .products{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+<nav>
+
+<div class="logo">
+TAWAKKAL STEEL CENTER
+<small>QUALITY • TRUST • VALUE</small>
+</div>
+
+<div class="navlinks">
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<h1>Welcome to Tawakkal Steel Center</h1>
+
+<p>Your Trusted Kitchenware Store</p>
+
+<p>Har tarah ke bartan aur kitchenware ek hi jagah.</p>
+
+<a class="btn" href="#products">Explore Products ↓</a>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="container" id="products">
+
+<div class="heading">
+<h2>Our Products Collection</h2>
+<p>Apne pasand ke bartan chunein aur WhatsApp par enquiry karein.</p>
+</div>
+
+<input
+class="search"
+id="search"
+type="search"
+placeholder="🔍 Search Products..."
+>
+
+<div class="filters">
+
+<button class="filter active" data-category="all">All Products</button>
+
+<button class="filter" data-category="steel">Steel Bartan</button>
+
+<button class="filter" data-category="cookware">Cookware</button>
+
+<button class="filter" data-category="dinner">Dinner Sets</button>
+
+<button class="filter" data-category="accessories">Accessories</button>
+
+<button class="filter" data-category="storage">Storage</button>
+
+</div>
+
+<div class="products" id="productList">
+
+<!-- PRODUCT 1 -->
+
+<div class="card" data-category="steel">
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80"
+alt="Steel Bartan"
+loading="lazy"
+onerror="this.src='https://placehold.co/400x300/eaf3ff/123f78?text=Steel+Bartan'"
+>
+</div>
+<h3>Steel Bartan</h3>
+<p>Quality stainless steel utensils</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%20Tawakkal%20Steel%20Center%2C%20mujhe%20Steel%20Bartan%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 2 -->
+
+<div class="card" data-category="cookware">
+<div class="product-image">
+<img
+src="https://nestasia<img
+src="https://images.unsplash.com/photo-1584990347449-ae8f0f2c9f4c?auto=format&fit=crop&w=900&q=80"
+alt="Kadhai and Tawa"his.src='https://placehold.co/400x300/eaf3ff/123f78?text=Kadhai+Tawa'"
+>
+</div>
+<h3>Kadhai & Tawa</h3>
+<p>Kitchen cooking essentials</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Kadhai%20aur%20Tawa%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 3 -->
+
+<div class="card" data-category="cookware">
+<div class="product-image">
+<img
+src="https://nestasia.in/cdn/shop/files/TriCore-C<img
+src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80"
+alt="Cookware Collection"o/400x300/eaf3ff/123f78?text=Cookware'"
+>
+</div>
+<h3>Pressure Cooker</h3>
+<p>Cooking essentials collection</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Pressure%20Cooker%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 4 -->
+
+<div class="card" data-category="dinner">
+<div class="product-image">
+<img
+src="https://www.wonderchef.com/cdn/shop/files/1stImage12pcset1.jpg?v=1757414<img
+src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=900&q=80"
+alt="Dinner Set"=Dinner+Set'"
+>
+</div>
+<h3>Dinner Sets</h3>
+<p>Beautiful dining collections</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Dinner%20Sets%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 5 -->
+
+<div class="card" data-category="steel">
+<div class="product-image">
+<img
+src="https://www.wonderchef.com/cdn/shop/files/1stImage12pcset1.jpg?v=1<img
+src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80"
+alt="Steel Glass and Cups"8?text=Steel+Glass'"
+>
+</div>
+<h3>Steel Glass & Cups</h3>
+<p>Everyday kitchen essentials</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Steel%20Glass%20aur%20Cups%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 6 -->
+
+<div class="card" data-category="steel">
+<div class="product-image">
+<img
+src="https://nyrakitchenware.in/cdn/shop/files/20221214_124711.jpg?v<img
+src="https://images.unsplash.com/photo-1606914469633-b1f7a6e8d5e1?auto=format&fit=crop&w=900&q=80"
+alt="Thali and Plates"3f78?text=Thali+Plates'"
+>
+</div>
+<h3>Thali & Plates</h3>
+<p>Different styles and designs</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Thali%20aur%20Plates%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 7 -->
+
+<div class="card" data-category="accessories">
+<div class="product-image">
+<img
+src="https://www.ratnahomeproducts.in/content/imag<img
+src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?auto=format&fit=crop&w=900&q=80"
+alt="Spoon and Kitchen Accessories"/400x300/eaf3ff/123f78?text=Kitchen+Accessories'"
+>
+</div>
+<h3>Spoon & Accessories</h3>
+<p>Useful kitchen accessories</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Spoon%20aur%20Accessories%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+<!-- PRODUCT 8 -->
+
+<div class="card" data-category="storage">
+<div class="product-image">
+<img
+src="https://bergnerhome.in/cdn/shop/files/BGIN-6664-02_927bc46f-967e-4068-b10c-177ea8081314.png?v=1773211320&w<img
+src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80"
+alt="Kitchen Storage"tchen Storage</h3>
+<p>Storage and containers</p>
+<a class="order-btn" href="https://wa.me/919209878898?text=Namaste%2C%20mujhe%20Kitchen%20Storage%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+</div>
+
+</div>
+
+<p class="no-results" id="noResults">Koi product nahi mila.</p>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="heading">
+<h2>About Our Shop</h2>
+</div>
+
+<div class="about-content">
+
+<h3>Tawakkal Steel Center</h3>
+
+<p>
+Tawakkal Steel Center mein aapka swagat hai.
+Hamari shop par kitchen ke liye tarah-tarah ke
+bartan aur kitchenware collections explore karein.
+Customer enquiry aur product information ke liye
+WhatsApp par sampark karein.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="container" id="contact">
+
+<div class="heading">
+<h2>Contact Us</h2>
+<p>Product enquiry aur jaankari ke liye sampark karein.</p>
+</div>
+
+<div class="contact-box">
+
+<h3>Tawakkal Steel Center</h3>
+
+<p>📍 Bhokri, Jamner Road, Pachora, Jalgaon, Maharashtra</p>
+
+<p>📱 +91 92098 78898</p>
+
+<a
+class="btn btn-blue"
+href="https://wa.me/919209878898?text=Namaste%20Tawakkal%20Steel%20Center"
+target="_blank"
+rel="noopener"
+>
+Chat on WhatsApp
+</a>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>TAWAKKAL STEEL CENTER</strong>
+
+<p>Bhokri, Jamner Road, Pachora, Jalgaon, Maharashtra</p>
+
+<p>© 2026 Tawakkal Steel Center. All Rights Reserved.</p>
+
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+class="float-wa"
+href="https://wa.me/919209878898?text=Namaste%20Tawakkal%20Steel%20Center"
+target="_blank"
+rel="noopener"
+>
+WhatsApp Us
+</a>
+
+<!-- SEARCH AND FILTER SCRIPT -->
+
+<script>
+
+const buttons=document.querySelectorAll(".filter");
+const cards=document.querySelectorAll(".card");
+const search=document.getElementById("search");
+
+let category="all";
+
+function filterProducts(){
+
+const query=search.value.toLowerCase();
+let visible=0;
+
+cards.forEach(card=>{
+
+const matchCategory=
+category==="all" ||
+card.dataset.category===category;
+
+const matchText=
+card.innerText.toLowerCase().includes(query);
+
+const show=matchCategory && matchText;
+
+card.style.display=show ? "block" : "none";
+
+if(show) visible++;
+
+});
+
+document.getElementById("noResults").style.display=
+visible ? "none" : "block";
+
+}
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+buttons.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+category=button.dataset.category;
+
+filterProducts();
+
+});
+
+});
+
+search.addEventListener("input",filterProducts);
+
+</script>
+
+</body>
+</html>
